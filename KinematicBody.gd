@@ -29,7 +29,11 @@ func _process(delta):
 	if Exit_On_Escape:
 		if Input.is_key_pressed(KEY_ESCAPE):
 			get_tree().quit()
-	
+			
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		pee = true
+	else:
+		pee = false
 	
 	
 func _physics_process(delta):
@@ -66,10 +70,10 @@ func _physics_process(delta):
 		velocity.x = global_transform.basis.x.x * Walk_Speed
 		velocity.z = global_transform.basis.x.z * Walk_Speed
 		
-	if not(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_DOWN) or Input.is_key_pressed(KEY_LEFT) or Input.is_key_pressed(KEY_RIGHT) or Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	if not(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_DOWN) or Input.is_key_pressed(KEY_LEFT) or Input.is_key_pressed(KEY_RIGHT) ):
 		velocity.x = 0
 		velocity.z = 0
-		pee = false
+		
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_accept"):

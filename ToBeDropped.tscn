@@ -67,6 +67,7 @@ collision_layer = 2
 [node name="CollisionShape" type="CollisionShape" parent="Player/Area2"]
 shape = SubResource( 5 )
 
+[connection signal="start_peeing" from="Player" to="Player/Control" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area/Particles" method="_on_Player_start_peeing"]
 [connection signal="area_entered" from="Player/Area2" to="Player/Control" method="_on_Area2_area_entered"]

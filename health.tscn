@@ -13,9 +13,13 @@ margin_top = 13.0
 margin_right = 388.0
 margin_bottom = 27.0
 value = 100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="pee_progress_bar" type="ProgressBar" parent="."]
+margin_left = 79.0
+margin_top = 41.0
+margin_right = 385.0
+margin_bottom = 55.0
+value = 100.0
 
 [node name="Label" type="Label" parent="."]
 margin_left = 1.0
@@ -24,3 +28,16 @@ margin_right = 63.0
 margin_bottom = 30.0
 custom_colors/font_color = Color( 1, 0.0431373, 0.0431373, 1 )
 text = "HEALTH "
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 42.0
+margin_right = 64.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 1, 0.0431373, 0.0431373, 1 )
+text = "PEE "
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
