@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://KinematicBody.gd" type="Script" id=1]
+[ext_resource path="res://Camera.gd" type="Script" id=2]
+[ext_resource path="res://ToBeDropped.gd" type="Script" id=3]
+[ext_resource path="res://health.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Particles.gd" type="Script" id=5]
+[ext_resource path="res://Area.gd" type="Script" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.22605, 0.194065, 0.624815 )
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.2
+extents = Vector3( 0.355498, 1.02565, 1.7111 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+direction = Vector3( 0, 0, -1 )
+spread = 5.0
+initial_velocity = 11.81
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="BoxShape" id=5]
+
+[node name="FirstPersonController" type="Spatial" groups=["player"]]
+script = ExtResource( 3 )
+
+[node name="Player" type="KinematicBody" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+Maximum_Y_Look = 90
+
+[node name="Control" parent="Player" instance=ExtResource( 4 )]
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435676, 0 )
+far = 367.0
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Area" type="Area" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.92247 )
+collision_layer = 4
+script = ExtResource( 6 )
+
+[node name="piss_volume" type="CollisionShape" parent="Player/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0013895 )
+shape = SubResource( 2 )
+
+[node name="Particles" type="Particles" parent="Player/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146766, 1.66969 )
+visibility_aabb = AABB( -0.951014, -0.639917, -2.27974, 1.90203, 1.27983, 4.55947 )
+local_coords = false
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Area2" type="Area" parent="Player"]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Player/Area2"]
+shape = SubResource( 5 )
+
+[connection signal="start_peeing" from="Player" to="Player/Area" method="_on_Player_start_peeing"]
+[connection signal="start_peeing" from="Player" to="Player/Area/Particles" method="_on_Player_start_peeing"]
+[connection signal="area_entered" from="Player/Area2" to="Player/Control" method="_on_Area2_area_entered"]
