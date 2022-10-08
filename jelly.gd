@@ -45,8 +45,9 @@ func _physics_process(delta):
 func _on_Area_area_entered(area):
 	print("Jelly hit")
 	
-	self.queue_free()
+	
 
 
 func _on_attack_box_area_entered(area):
 	print("Jelly_attacked you")
+	

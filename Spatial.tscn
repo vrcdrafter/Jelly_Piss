@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sand.jpg" type="Texture" id=1]
-[ext_resource path="res://Jellyfish Sprite Sheet.png" type="Texture" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
 [ext_resource path="res://terrain_why_do_I_need_this_folder/data.hterrain" type="Resource" id=4]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=5]
@@ -14,44 +13,6 @@ script = ExtResource( 5 )
 mode = 0
 textures = [ [ ExtResource( 1 ) ], [ null ] ]
 
-[sub_resource type="Animation" id=5]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 2 ) ]
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 )
-}
-
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
@@ -63,7 +24,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0563965, -1.97308, -2.10838
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 3 )
-lod_scale = 2.0
 map_scale = Vector3( 0.3, 0.3, 0.3 )
 _terrain_data = ExtResource( 4 )
 chunk_size = 32
@@ -89,14 +49,7 @@ depth = 103.59
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 80, 1, 80 )
 
 [node name="jelly" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.832242, 90 )
-
-[node name="jelly2" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.4932, 0.832242, 88.273 )
-
-[node name="AnimationPlayer" parent="jelly2/Sprite3D" index="0"]
-anims/RESET = SubResource( 5 )
-anims/idle = SubResource( 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.989, 0.790047, 89.9759 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4207, 158.866, 130.604 )
@@ -110,4 +63,3 @@ mesh = SubResource( 2 )
 material = SubResource( 3 )
 
 [editable path="jelly"]
-[editable path="jelly2"]
