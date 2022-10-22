@@ -49,6 +49,7 @@ enabled=PoolStringArray( "res://addons/sketchfab/plugin.cfg", "res://addons/zyla
 3d_physics/layer_2="player"
 3d_physics/layer_3="bullet"
 3d_physics/layer_4="land"
+3d_physics/layer_5="items"
 
 [physics]
 

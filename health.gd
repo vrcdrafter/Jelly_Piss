@@ -6,7 +6,8 @@ extends Control
 # var b = "text"
 var current_health = 100
 var current_pee = 100
-
+var have_pee_left_sig = true
+signal out_of_pee(no_piss)
 var peeing_status = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,8 +37,14 @@ func _process(delta):
 		get_tree().change_scene("res://game_over.tscn")
 		
 	
-	
-
+	if (current_pee <= 0):
+		#print("you are out of Pee")
+		have_pee_left_sig = false
+		emit_signal("out_of_pee", have_pee_left_sig)
+	else:
+		have_pee_left_sig = true
+		emit_signal("out_of_pee", have_pee_left_sig)
+		#print("have pee left ", have_pee_left_sig)
 
 
 
@@ -45,15 +52,22 @@ func _process(delta):
 
 
 func _on_Area2_area_entered(area):
-	print("Jelly Sensually touched you")
-	current_health = current_health - 20
-
+	#print("Jelly Sensually touched you")
+	#print(area)
+	# we need a way to seperate the areas from stuff. 
+	#print(area.to_string())
+	if(area.is_in_group("enemy")):
+		current_health = current_health - 20
+	if(area.is_in_group("item")):
+		current_pee = current_pee + 20
+	
 
 func _on_Timer_timeout():
 	if peeing_status:
-		current_pee = current_pee - 5
+		current_pee = current_pee - 20
 	
 
 func _on_Player_start_peeing(pee_status):
+	#print("pee_status = ", pee_status)
 	peeing_status = pee_status # peeing status goes true when peeing
 	
