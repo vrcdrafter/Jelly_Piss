@@ -17,10 +17,3 @@ func _ready():
 	print("test ",SENSITIVITY_Y)
 	pass
 	
-func _input(event):
-	if event is InputEventMouseMotion:
-		if INVERSION_MULT * SENSITIVITY_Y * event.relative.y >= 0 and self.rotation_degrees.x >= MAX_Y:
-			return
-		if INVERSION_MULT * SENSITIVITY_Y * event.relative.y <= 0  and self.rotation_degrees.x <= -MAX_Y:
-			return
-		rotate_x(INVERSION_MULT * SENSITIVITY_Y * event.relative.y)

@@ -47,7 +47,7 @@ height = 0.144
 depth = 103.59
 
 [node name="FirstPersonController" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 80, 1, 80 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 26.7141, 1, 86.3142 )
 
 [node name="jelly" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.989, 0.790047, 89.9759 )
