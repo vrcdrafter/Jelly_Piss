@@ -14,7 +14,8 @@ func _process(delta):
 	var update_pos = get_node("Player")
 	
 	current_pos = self.transform.origin - update_pos.new_pos
-	
+	#print(update_pos.new_pos)
+	#print(current_pos)
 	
 
 

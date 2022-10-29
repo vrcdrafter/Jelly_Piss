@@ -8,8 +8,7 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var test = load("res://jelly.tscn")
-	print(test.get_rid())
+	print_tree_pretty()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
