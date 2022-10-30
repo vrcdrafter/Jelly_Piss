@@ -26,13 +26,13 @@ func _physics_process(delta):
 	var method_a = get_node("../FirstPersonController")
 	var update_pos = get_node("../FirstPersonController/Player")
 	# start sin motion 
-	#time += delta
-	#var freq = 5
-	#var amplitude = 1
-	#var v = Vector3(0, 25, 0)
-	#v.x = sin(time * freq) * amplitude
-	#velocity = v
-	#var collision = move_and_collide(velocity * delta)
+	time += delta
+	var freq = 5
+	var amplitude = 5
+	var v = Vector3(0, 25, 0)
+	v.x = sin(time * freq) * amplitude
+	velocity = v
+	var collision = move_and_collide(velocity * delta)
 	# end sin motion 
 	
 	

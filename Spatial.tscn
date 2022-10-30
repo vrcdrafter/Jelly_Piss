@@ -52,7 +52,7 @@ depth = 103.59
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 26.7141, 1, 86.3142 )
 
 [node name="jelly" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8755, 0.790047, 86.774 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9298, 0.790047, 86.774 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4207, 158.866, 130.604 )
@@ -65,7 +65,7 @@ invert_faces = true
 mesh = SubResource( 2 )
 material = SubResource( 3 )
 
-[node name="drinks" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9405, 1.81156, 82.4185 )
+[node name="drinks" parent="." groups=["item"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0287, 1.81156, 85.5713 )
 
 [editable path="jelly"]
