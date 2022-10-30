@@ -68,6 +68,7 @@ tracks/0/keys = {
 extents = Vector3( 0.135084, 0.195823, 0.21308 )
 
 [sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.714736, 0.803171, 0.508678 )
 
 [sub_resource type="CylinderShape" id=9]
 radius = 5.32159

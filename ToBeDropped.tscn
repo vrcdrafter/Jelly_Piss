@@ -12,7 +12,7 @@ extents = Vector3( 0.22605, 0.194065, 0.624815 )
 
 [sub_resource type="BoxShape" id=2]
 margin = 0.2
-extents = Vector3( 0.355498, 1.02565, 1.7111 )
+extents = Vector3( 0.355498, 1.02565, 3.06641 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 direction = Vector3( 0, 0, -1 )
