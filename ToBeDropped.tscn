@@ -61,7 +61,7 @@ process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 4 )
 script = ExtResource( 5 )
 
-[node name="Area2" type="Area" parent="Player"]
+[node name="Area2" type="Area" parent="Player" groups=["player"]]
 collision_layer = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Player/Area2"]

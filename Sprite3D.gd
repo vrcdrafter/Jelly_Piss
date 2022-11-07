@@ -5,6 +5,10 @@ extends Sprite3D
 # var a = 2
 # var b = "text"
 var jellu_alive = true
+var attacking = false
+var attack_anim_finished = false
+signal attack_finisued
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,9 +17,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if jellu_alive:
+	attack_anim_finished = false
+	if jellu_alive && !attacking:
 		#print("jelly is alive")
 		$AnimationPlayer.play("idle")
+	elif attacking:
+		$AnimationPlayer.play("zap")
 	else:
 		$AnimationPlayer.play("die")
 		
@@ -30,3 +37,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "die":
 		var source_jelly = get_node("..")
 		source_jelly.queue_free()
+	if anim_name == "zap":
+		$AnimationPlayer.stop()
+		attack_anim_finished = true # this is a bad idea how do I reset
+		emit_signal(attack_anim_finished)
+	
+
+
+func _on_attack_box_area_entered(area):
+	if(area.is_in_group("player")):
+		attacking = true
