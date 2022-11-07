@@ -7,7 +7,7 @@ extends Sprite3D
 var jellu_alive = true
 var attacking = false
 var attack_anim_finished = false
-signal attack_finisued
+signal attack_finisued(attack_anim_finished)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,7 +40,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "zap":
 		$AnimationPlayer.stop()
 		attack_anim_finished = true # this is a bad idea how do I reset
-		emit_signal(attack_anim_finished)
+		emit_signal("has_atc_finished",attack_anim_finished)
 	
 
 

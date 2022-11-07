@@ -4,6 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
 var current_health = 100
 var current_pee = 100
 var have_pee_left_sig = true
