@@ -7,7 +7,7 @@ extends Sprite3D
 var jellu_alive = true
 var attacking = false
 var attack_anim_finished = false
-signal attack_finisued(attack_anim_finished)
+signal attack_finisued
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +21,7 @@ func _process(delta):
 	if jellu_alive && !attacking:
 		#print("jelly is alive")
 		$AnimationPlayer.play("idle")
-	elif attacking:
+	elif jellu_alive && attacking:
 		$AnimationPlayer.play("zap")
 	else:
 		$AnimationPlayer.play("die")
@@ -40,7 +40,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "zap":
 		$AnimationPlayer.stop()
 		attack_anim_finished = true # this is a bad idea how do I reset
-		emit_signal("has_atc_finished",attack_anim_finished)
+		#emit_signal(attack_anim_finished)
 	
 
 

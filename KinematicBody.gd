@@ -44,7 +44,18 @@ func _physics_process(delta):
 		pee = true
 		
 	
-	
+	if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP):
+		Walk_Speed += Accelaration
+		if Walk_Speed > Maximum_Walk_Speed:
+			Walk_Speed = Maximum_Walk_Speed
+		velocity.x = -global_transform.basis.z.x * Walk_Speed
+		velocity.z = -global_transform.basis.z.z * Walk_Speed
+	if Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN):
+		Walk_Speed += Accelaration
+		if Walk_Speed > Maximum_Walk_Speed:
+			Walk_Speed = Maximum_Walk_Speed
+		velocity.x = global_transform.basis.z.x * Walk_Speed
+		velocity.z = global_transform.basis.z.z * Walk_Speed
 
 
 		
