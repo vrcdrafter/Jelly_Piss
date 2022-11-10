@@ -88,3 +88,8 @@ func _physics_process(delta):
 	new_pos = self.transform.origin
 	emit_signal("start_peeing", pee)
 
+
+
+func _on_Control_give_lil_shake(shake):
+	
+	print(shake)

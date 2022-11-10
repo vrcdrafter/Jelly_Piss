@@ -35,6 +35,10 @@ Maximum_Y_Look = 90
 
 [node name="Control" parent="Player" instance=ExtResource( 4 )]
 
+[node name="Timer2" type="Timer" parent="Player/Control"]
+process_mode = 0
+one_shot = true
+
 [node name="Camera" type="Camera" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435676, 0 )
 far = 367.0
@@ -70,6 +74,8 @@ shape = SubResource( 5 )
 [connection signal="start_peeing" from="Player" to="Player/Control" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area/Particles" method="_on_Player_start_peeing"]
+[connection signal="give_lil_shake" from="Player/Control" to="Player" method="_on_Control_give_lil_shake"]
 [connection signal="out_of_pee" from="Player/Control" to="Player/Area" method="_on_Control_out_of_pee"]
 [connection signal="out_of_pee" from="Player/Control" to="Player/Area/Particles" method="_on_Control_out_of_pee"]
+[connection signal="timeout" from="Player/Control/Timer2" to="Player/Control" method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Player/Area2" to="Player/Control" method="_on_Area2_area_entered"]

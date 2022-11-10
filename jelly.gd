@@ -41,7 +41,7 @@ func _physics_process(delta):
 		#player_pos = update_pos.new_pos
 		player_pos = update_pos.global_transform.origin
 		enemy_pos = self.global_transform.origin
-		print("player pos is ",player_pos, " enemy pos ", self.transform.origin)
+		#print("player pos is ",player_pos, " enemy pos ", self.transform.origin)
 		#get_node("/root").print_tree_pretty()
 		vector_to_player = player_pos - enemy_pos
 		vector_to_player = vector_to_player.normalized() # normalize the vector
