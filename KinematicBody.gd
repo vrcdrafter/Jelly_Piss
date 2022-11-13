@@ -8,7 +8,7 @@ export var Maximum_Y_Look = 45
 export var Accelaration = 5
 export var Maximum_Walk_Speed = 5
 export var Jump_Speed = 2
-
+var shaking = false
 signal start_peeing(pee_status)
 
 export var new_pos =  Vector3(0,0,0)
@@ -16,6 +16,10 @@ export var new_pos =  Vector3(0,0,0)
 const GRAVITY = 0.098
 var velocity = Vector3(0,0,0)
 var velocity_2 = Vector3(1,0,0)
+var velocity_3 = Vector3(-5,3,0)
+
+onready var timer = get_node("shake_timer")
+
 var forward_velocity = 0
 var Walk_Speed = 0
 var pee = false
@@ -23,7 +27,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	forward_velocity = Walk_Speed
 	set_process(true)
-	
+	timer.wait_time = 1
 	
 
 func _process(delta):
@@ -82,14 +86,21 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = Jump_Speed
-	velocity = move_and_slide(velocity, Vector3(0,1,0))
-	velocity_2 = move_and_slide(velocity_2, Vector3(0,1,0))
-	#emit_signal(test_var)  # well darn , that doesnt work .
+	velocity = move_and_slide(velocity, Vector3(0,1,0)) #movement overal 
+	velocity_2 = move_and_slide(velocity_2, Vector3(0,1,0)) # constant movement forward
+	
 	new_pos = self.transform.origin
 	emit_signal("start_peeing", pee)
 
+	if shaking:
+		move_and_slide(velocity_3, Vector3(0,1,0))
 
 
 func _on_Control_give_lil_shake(shake):
-	
+	timer.start()
+	shaking = true
 	print(shake)
+
+
+func _on_shake_timer_timeout():
+	shaking = false

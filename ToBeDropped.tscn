@@ -71,6 +71,9 @@ collision_layer = 2
 [node name="CollisionShape" type="CollisionShape" parent="Player/Area2"]
 shape = SubResource( 5 )
 
+[node name="shake_timer" type="Timer" parent="Player"]
+wait_time = 0.707
+
 [connection signal="start_peeing" from="Player" to="Player/Control" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area" method="_on_Player_start_peeing"]
 [connection signal="start_peeing" from="Player" to="Player/Area/Particles" method="_on_Player_start_peeing"]
@@ -79,3 +82,4 @@ shape = SubResource( 5 )
 [connection signal="out_of_pee" from="Player/Control" to="Player/Area/Particles" method="_on_Control_out_of_pee"]
 [connection signal="timeout" from="Player/Control/Timer2" to="Player/Control" method="_on_Timer2_timeout"]
 [connection signal="area_entered" from="Player/Area2" to="Player/Control" method="_on_Area2_area_entered"]
+[connection signal="timeout" from="Player/shake_timer" to="Player" method="_on_shake_timer_timeout"]
