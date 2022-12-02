@@ -21,6 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var idle = get_node("AudioStreamPlayer3D")
+	#idle.play()
 	strike = 0 
 	
 	var method_a = get_node("../FirstPersonController")
