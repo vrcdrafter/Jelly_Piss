@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://sand.jpg" type="Texture" id=1]
 [ext_resource path="res://DRINK.tscn" type="PackedScene" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://Jellyfish Sprite Sheet.png" type="Texture" id=10]
 [ext_resource path="res://beach_sounds.wav" type="AudioStream" id=11]
 [ext_resource path="res://CSGBox.gd" type="Script" id=12]
+[ext_resource path="res://palm tree-1.png.png" type="Texture" id=13]
+[ext_resource path="res://tree background.png" type="Texture" id=14]
+[ext_resource path="res://beach body blonde2-1.png.png" type="Texture" id=15]
+[ext_resource path="res://latina_gilr.png" type="Texture" id=16]
+[ext_resource path="res://red_girl.png" type="Texture" id=17]
+[ext_resource path="res://black_girl.png" type="Texture" id=18]
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 5 )
@@ -19,7 +25,6 @@ mode = 0
 textures = [ [ ExtResource( 1 ) ], [ null ] ]
 
 [sub_resource type="SpatialMaterial" id=17]
-flags_transparent = true
 albedo_color = Color( 0.0784314, 0.847059, 1, 0.388235 )
 
 [sub_resource type="Animation" id=18]
@@ -140,7 +145,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.997, -0.674793, 136.507 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75.7217, -0.867192, 135.824 )
 width = 143.937
 height = 0.144
 depth = 103.59
@@ -148,10 +153,13 @@ material = SubResource( 17 )
 script = ExtResource( 12 )
 
 [node name="FirstPersonController" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 26.7141, 1, 86.3142 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 15.1298, 1, 86.3142 )
 
 [node name="jelly" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9298, 0.790047, 86.774 )
+
+[node name="CollisionShape" parent="jelly/enemy_detection" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 
 [node name="jelly2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9298, 0.790047, 90.2589 )
@@ -171,19 +179,7 @@ mesh = SubResource( 2 )
 material = SubResource( 3 )
 
 [node name="drinks" parent="." groups=["item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0287, 0.58046, 85.5713 )
-
-[node name="drinks2" parent="." groups=["item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2048, 0.58046, 91.5595 )
-
-[node name="drinks3" parent="." groups=["item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1357, 0.58046, 81.1344 )
-
-[node name="drinks4" parent="." groups=["item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.161, 0.58046, 87.0915 )
-
-[node name="drinks5" parent="." groups=["item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.38, 0.58046, 81.203 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 47.4295, 0.217108, 88.4988 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7272, 43.144, 87.4465 )
@@ -193,6 +189,174 @@ light_specular = 0.895
 light_bake_mode = 0
 omni_range = 336.857
 omni_attenuation = 0.241484
+
+[node name="background stuff" type="RoomGroup" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 94.2197, 3.85291, 73.9637 )
+
+[node name="Sprite3D" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920174, -0.122911, 0.809799 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22241, 0, -6.07887 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D3" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9453, 0, -6.07887 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D21" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25.0455, -3.34681, 4.87399 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 15 )
+
+[node name="Sprite3D27" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -6.15829, -3.34681, 2.58618 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 15 )
+
+[node name="Sprite3D28" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -6.15829, -3.34681, 14.1287 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 15 )
+
+[node name="Sprite3D22" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -22.8965, -3.34681, 17.674 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 18 )
+
+[node name="Sprite3D29" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -6.74551, -3.34681, 17.674 )
+flip_h = true
+billboard = 1
+texture = ExtResource( 18 )
+
+[node name="Sprite3D23" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -45.8748, -3.37819, 15.8458 )
+flip_h = true
+billboard = 1
+texture = ExtResource( 16 )
+
+[node name="Sprite3D25" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -33.1852, -3.34681, 11.2487 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 16 )
+
+[node name="Sprite3D30" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.18713, -3.34681, 11.2487 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 16 )
+
+[node name="Sprite3D24" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -44.8949, -3.34681, 6.12477 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 17 )
+
+[node name="Sprite3D26" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -17.8351, -3.34681, 8.12097 )
+flip_h = true
+billboard = 1
+double_sided = false
+texture = ExtResource( 17 )
+
+[node name="Sprite3D4" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -20.6782, -3.8147e-06, -22.4568 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D17" type="Sprite3D" parent="background stuff"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -38.9922, -3.8147e-06, -22.4568 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D5" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53611, 0, -22.6589 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D6" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96565, 0, -22.6589 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D7" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96565, 0, -13.3217 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D8" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2224, 0, -13.3217 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D9" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2224, 0, -23.1185 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D10" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3273, 0, -23.1185 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D11" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3273, 0, -34.6661 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D12" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732857, 0, -34.6661 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D13" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6891, 0, -34.6661 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D14" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7829, 0, -34.6661 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D15" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6163, 0, -34.6661 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D16" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6163, 0, -25.97 )
+billboard = 1
+texture = ExtResource( 13 )
+
+[node name="Sprite3D18" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1.19249e-07, 0, -10, 0, 10, 0, 10, 0, 1.19249e-07, 62.6596, 3.59451, 18.1209 )
+texture = ExtResource( 14 )
+
+[node name="Sprite3D19" type="Sprite3D" parent="background stuff"]
+transform = Transform( 1.19249e-07, 0, -10, 1.5095, 9.88541, 1.80006e-08, 9.88541, -1.5095, 1.17882e-07, 58.7265, 14.9883, -24.335 )
+texture = ExtResource( 14 )
+
+[node name="Sprite3D20" type="Sprite3D" parent="background stuff"]
+transform = Transform( 8.26079, 0, -5.63555, 0, 10, 0, 5.63555, 0, 8.26079, 58.7265, 8.79354, -45.5578 )
+texture = ExtResource( 14 )
 
 [editable path="jelly"]
 [editable path="jelly2"]
