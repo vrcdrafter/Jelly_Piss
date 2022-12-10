@@ -29,6 +29,10 @@ var pee = false
 var end_num = 0
 var gradual_one = 0
 
+# var for 
+var turn_timer_up = false
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	forward_velocity = Walk_Speed
@@ -51,13 +55,21 @@ func _process(delta):
 	#var final_boss_position = marker_pos.global_transform.origin
 	#print(final_boss_position)
 	# begin player override at end of level 
-	if player_pos > 95:
+	
+	if player_pos > 95 && !turn_timer_up:
 		var test = analog_one()
 		#print("turn")
 		
 		var wtransform = global_transform.looking_at(marker_pos.translation,Vector3(0,1,0))
 		var wrotation = Quat(global_transform.basis).slerp(Quat(wtransform.basis), test)
 		global_transform = Transform(Basis(wrotation), global_transform.origin)
+		
+		yield(get_tree().create_timer(1.0), "timeout")
+		print("begin attack")
+		turn_timer_up = true
+	if player_pos > 95 && turn_timer_up:
+		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.02)
+		
 	# end player override at end of level 
 	
 	
@@ -112,7 +124,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_accept"):
 				velocity.y = Jump_Speed
 		velocity = move_and_slide(velocity, Vector3(0,1,0)) #movement overal 
-		velocity_2 = move_and_slide(velocity_2, Vector3(0,1,0)) # constant movement forward
+		#velocity_2 = move_and_slide(velocity_2, Vector3(0,1,0)) # constant movement forward
 	
 	new_pos = self.transform.origin
 	emit_signal("start_peeing", pee)
