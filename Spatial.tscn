@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sand.jpg" type="Texture" id=1]
 [ext_resource path="res://DRINK.tscn" type="PackedScene" id=2]
@@ -119,6 +119,10 @@ tracks/0/keys = {
 flags_unshaded = true
 albedo_texture = ExtResource( 8 )
 
+[sub_resource type="CubeMesh" id=22]
+
+[sub_resource type="SpatialMaterial" id=23]
+
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0563965, -1.97308, -2.10838 )
 script = ExtResource( 9 )
@@ -153,13 +157,10 @@ material = SubResource( 17 )
 script = ExtResource( 12 )
 
 [node name="FirstPersonController" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 15.1298, 1, 86.3142 )
+transform = Transform( 0.0387191, 0, -0.99925, 0, 1, 0, 0.99925, 0, 0.0387191, 15.1298, 1, 86.3142 )
 
 [node name="jelly" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9298, 0.790047, 86.774 )
-
-[node name="CollisionShape" parent="jelly/enemy_detection" index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 
 [node name="jelly2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9298, 0.790047, 90.2589 )
@@ -172,6 +173,7 @@ anims/zap = SubResource( 21 )
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 90, 0, 0, 0, 90, 0, 0, 0, 90, 69.589, 42.0446, 93.1897 )
+visible = false
 generate_lightmap = false
 calculate_tangents = false
 invert_faces = true
@@ -357,6 +359,11 @@ texture = ExtResource( 14 )
 [node name="Sprite3D20" type="Sprite3D" parent="background stuff"]
 transform = Transform( 8.26079, 0, -5.63555, 0, 10, 0, 5.63555, 0, 8.26079, 58.7265, 8.79354, -45.5578 )
 texture = ExtResource( 14 )
+
+[node name="marker" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.8757, 1.28201, 98.7709 )
+mesh = SubResource( 22 )
+material = SubResource( 23 )
 
 [editable path="jelly"]
 [editable path="jelly2"]

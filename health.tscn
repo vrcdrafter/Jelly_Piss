@@ -6,6 +6,9 @@
 margin_right = 378.0
 margin_bottom = 127.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="health" type="ProgressBar" parent="."]
 margin_left = 82.0

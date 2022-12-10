@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://CSGMesh.gd" type="Script" id=1]
+
+[sub_resource type="PrismMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="triangle" type="CSGMesh" parent="."]
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.76911, -0.41631, 0.484929, 0, 0.758749, 0.651384, -0.639117, -0.500985, 0.583561, 9.98439, 11.0775, 23.7131 )
