@@ -10,7 +10,7 @@ var have_pee_left = true
 func _ready():
 	emitting = false
 	pass # Replace with function body.
-
+	process_material.set("initial_velocity", 10)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

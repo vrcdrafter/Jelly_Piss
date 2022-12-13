@@ -30,7 +30,7 @@ var end_num = 0
 var gradual_one = 0
 
 # var for 
-var turn_timer_up = false
+var ready_for_boss = 0
 
 
 func _ready():
@@ -56,7 +56,7 @@ func _process(delta):
 	#print(final_boss_position)
 	# begin player override at end of level 
 	
-	if player_pos > 95 && !turn_timer_up:
+	if player_pos > 95 && ready_for_boss == 0:
 		var test = analog_one()
 		#print("turn")
 		
@@ -65,11 +65,13 @@ func _process(delta):
 		global_transform = Transform(Basis(wrotation), global_transform.origin)
 		
 		yield(get_tree().create_timer(1.0), "timeout")
-		print("begin attack")
-		turn_timer_up = true
-	if player_pos > 95 && turn_timer_up:
+		#print("begin attack")
+		ready_for_boss = 1
+	if player_pos > 95 && ready_for_boss == 1:
 		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.02)
-		
+		yield(get_tree().create_timer(1.0), "timeout")
+		ready_for_boss = 2
+		print("can not move")
 	# end player override at end of level 
 	
 	
@@ -80,7 +82,8 @@ func _physics_process(delta):
 	
 	var player_pos = global_transform.origin.x
 	
-	if player_pos <= 95:
+	if player_pos <= 95 || ready_for_boss <= 2:
+		print("can move")
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			pee = true
 			
