@@ -71,7 +71,7 @@ func _process(delta):
 		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.02)
 		yield(get_tree().create_timer(1.0), "timeout")
 		ready_for_boss = 2
-		print("can not move")
+		#print("can not move")
 	# end player override at end of level 
 	
 	
@@ -83,7 +83,7 @@ func _physics_process(delta):
 	var player_pos = global_transform.origin.x
 	
 	if player_pos <= 95 || ready_for_boss <= 2:
-		print("can move")
+		#print("can move")
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			pee = true
 			

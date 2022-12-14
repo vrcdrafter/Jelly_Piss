@@ -12,11 +12,28 @@ export var strike = 0
 var test = [0,0]
 var attacking = false
 
+var shoot_bullet = false
+
 var time = 1.1
+var projectile = load("res://bullet.tscn")
 
 func _ready():
 # note I have to go up a directory first .
 	jelly_data = "null"
+	
+	
+
+
+
+func _process(delta):
+	
+	
+	if shoot_bullet:
+		var bullet = projectile.instance()
+		#add_child_below_node(get_tree().get_root().get_node("AudioStreamPlayer"),bullet)
+		add_child(bullet,true)
+		shoot_bullet = false
+	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,3 +91,8 @@ func _on_attack_box_area_entered(area):
 func _on_enemy_detection_area_entered(area):
 	print("entered detection area")
 	attacking = true
+
+
+func _on_Timer_timeout():
+	print("shoot")
+	shoot_bullet = true
