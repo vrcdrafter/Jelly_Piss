@@ -271,6 +271,6 @@ mesh = SubResource( 22 )
 material = SubResource( 23 )
 
 [node name="boss_jelly" parent="." instance=ExtResource( 10 )]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 99.6651, 9.68213, 125.259 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 99.6651, -6.36771, 125.259 )
 
 [editable path="jelly"]

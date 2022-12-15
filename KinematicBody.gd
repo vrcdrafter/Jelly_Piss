@@ -20,6 +20,7 @@ var velocity_3 = Vector3(-5,3,0)
 
 onready var timer = get_node("shake_timer")
 
+export var ready_for_boss = 0
 
 var forward_velocity = 0
 var Walk_Speed = 0
@@ -30,7 +31,7 @@ var end_num = 0
 var gradual_one = 0
 
 # var for 
-var ready_for_boss = 0
+
 
 
 func _ready():
@@ -68,7 +69,7 @@ func _process(delta):
 		#print("begin attack")
 		ready_for_boss = 1
 	if player_pos > 95 && ready_for_boss == 1:
-		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.02)
+		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.01)
 		yield(get_tree().create_timer(1.0), "timeout")
 		ready_for_boss = 2
 		#print("can not move")

@@ -13,10 +13,11 @@ var test = [0,0]
 var attacking = false
 
 var shoot_bullet = false
+var presented = false
 var ready_for_battle = false
 var time = 1.1
 var projectile = load("res://bullet.tscn")
-
+onready var player_status = get_node("../FirstPersonController/Player")
 func _ready():
 # note I have to go up a directory first .
 	jelly_data = "null"
@@ -26,13 +27,16 @@ func _ready():
 
 
 func _process(delta):
-	
-	if ready_for_battle:
-		if shoot_bullet:
-			var bullet = projectile.instance()
-			#add_child_below_node(get_tree().get_root().get_node("AudioStreamPlayer"),bullet)
-			add_child(bullet,true)
-			shoot_bullet = false
+	presented = player_status.ready_for_boss
+	print(presented)
+	if presented == 2:
+		self.global_transform.origin = lerp(self.global_transform.origin,Vector3(99.6,6.238,125.25),.02)
+		if ready_for_battle:
+			if shoot_bullet:
+				var bullet = projectile.instance()
+				#add_child_below_node(get_tree().get_root().get_node("AudioStreamPlayer"),bullet)
+				add_child(bullet,true)
+				shoot_bullet = false
 		
 	
 
