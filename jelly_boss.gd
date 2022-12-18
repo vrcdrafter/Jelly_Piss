@@ -28,7 +28,7 @@ func _ready():
 
 func _process(delta):
 	presented = player_status.ready_for_boss
-	print(presented)
+	#print(presented)
 	if presented == 2:
 		self.global_transform.origin = lerp(self.global_transform.origin,Vector3(99.6,6.238,125.25),.02)
 		if ready_for_battle:
