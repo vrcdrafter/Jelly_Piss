@@ -92,8 +92,8 @@ shader_param/max_line_width = 300.0
 shader_param/min_line_width = 50.0
 shader_param/freq = 10.0
 shader_param/block_size = 10.0
-shader_param/starting_colour = Plane( 0, 0, 6, 1 )
-shader_param/ending_colour = Plane( 1, 1, 1, 0 )
+shader_param/starting_colour = Plane( 1, 1, 1, 1 )
+shader_param/ending_colour = Plane( 1, 1, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.86292, 0.0537109, 1 )
@@ -120,19 +120,22 @@ margin_top = 13.0
 margin_right = 388.0
 margin_bottom = 27.0
 value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="health"]
 material = SubResource( 4 )
-position = Vector2( 155, 44 )
-scale = Vector2( 0.631, 0.151 )
+position = Vector2( 146, 47 )
+scale = Vector2( 0.711083, 0.1205 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 500, 500, 0, 0 )
 
 [node name="pee_progress_bar" type="ProgressBar" parent="."]
-margin_left = 79.0
-margin_top = 41.0
-margin_right = 385.0
-margin_bottom = 55.0
+margin_left = 82.0
+margin_top = 45.0
+margin_right = 388.0
+margin_bottom = 66.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_styles/fg = SubResource( 1 )

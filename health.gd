@@ -11,13 +11,14 @@ var have_pee_left_sig = true
 var take_a_shake = false
 var enemy_finished_attack = false
 
+onready var flash_pee = get_node("health/Sprite")
+
 signal out_of_pee(no_piss)
 signal give_lil_shake(shake)
 var peeing_status = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# initialize pee
-	pass
+	flash_pee.set_visible(false)
 	
 	
 
@@ -70,7 +71,9 @@ func _on_Area2_area_entered(area):
 		emit_signal("give_lil_shake", take_a_shake)
 	if(area.is_in_group("item")):
 		current_pee = current_pee + 20
-	
+		flash_pee.set_visible(true)
+		yield(get_tree().create_timer(.3), "timeout")
+		flash_pee.set_visible(false)
 
 func _on_Timer_timeout():
 	if peeing_status:
