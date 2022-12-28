@@ -160,7 +160,6 @@ transform = Transform( 0.0387191, 0, -0.99925, 0, 1, 0, 0.99925, 0, 0.0387191, 1
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 90, 0, 0, 0, 90, 0, 0, 0, 90, 69.589, 42.0446, 93.1897 )
-visible = false
 generate_lightmap = false
 calculate_tangents = false
 invert_faces = true

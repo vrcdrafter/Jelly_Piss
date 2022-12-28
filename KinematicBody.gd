@@ -39,7 +39,7 @@ func _ready():
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
-	
+	#gimme_scene("res://grey_fox.jpg")
 
 func _process(delta):
 	if Exit_On_Escape:
@@ -50,6 +50,8 @@ func _process(delta):
 		pee = true
 	else:
 		pee = false
+		
+	
 	var player_pos = global_transform.origin.x
 	#print(player_pos)
 	var marker_pos = get_node("../../marker")
@@ -158,3 +160,15 @@ func analog_one():
 	else:
 		return gradual_one
 
+
+func gimme_scene(picture,audio=null):
+	#create box 
+	var sprite = Sprite.new()
+	sprite.set_name("test_sprite")
+	var box = add_child_below_node(self,sprite)
+	var box_node = get_node("test_sprite")
+	print_tree_pretty()
+	#yield(get_tree().create_timer(3.0), "timeout")
+	var image = load(picture)
+	box_node.set_texture(image)
+	
