@@ -39,8 +39,9 @@ func _ready():
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
+	gimme_scene("res://beach couple.png")
 	#gimme_scene("res://grey_fox.jpg")
-
+	
 func _process(delta):
 	if Exit_On_Escape:
 		if Input.is_key_pressed(KEY_ESCAPE):
@@ -167,8 +168,13 @@ func gimme_scene(picture,audio=null):
 	sprite.set_name("test_sprite")
 	var box = add_child_below_node(self,sprite)
 	var box_node = get_node("test_sprite")
-	print_tree_pretty()
-	#yield(get_tree().create_timer(3.0), "timeout")
+	
+	
 	var image = load(picture)
+	box_node.position = Vector2(400,400)
+	box_node.scale = Vector2(.3,.3)
 	box_node.set_texture(image)
+	yield(get_tree().create_timer(3.0), "timeout")
+	box_node.queue_free()
+	
 	
