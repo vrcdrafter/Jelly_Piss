@@ -39,6 +39,7 @@ func _ready():
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
+	yield(get_tree().create_timer(1.0), "timeout")
 	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
 	yield(gimme_scene("res://grey_fox.jpg"),"completed")
 	
@@ -166,6 +167,7 @@ func gimme_scene(picture,audio_in=null):
 	#create box 
 	var sprite = Sprite.new()
 	var audio_2 = AudioStreamPlayer.new()
+	var audio_node = add_child(audio_2)
 	var box = add_child(sprite)
 	
 	
@@ -178,6 +180,7 @@ func gimme_scene(picture,audio_in=null):
 	if(audio_in != null):
 		var loaded_audio = load(audio_in)
 		audio_2.set_stream(loaded_audio)
+		print(loaded_audio)
 		audio_2.play()
 	
 	yield(get_tree().create_timer(3.0), "timeout")
