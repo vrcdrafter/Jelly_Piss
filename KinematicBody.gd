@@ -39,7 +39,7 @@ func _ready():
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
-	yield(gimme_scene("res://beach couple.png"),"completed")
+	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
 	yield(gimme_scene("res://grey_fox.jpg"),"completed")
 	
 func _process(delta):
@@ -162,19 +162,28 @@ func analog_one():
 		return gradual_one
 
 
-func gimme_scene(picture,audio=null):
+func gimme_scene(picture,audio_in=null):
 	#create box 
 	var sprite = Sprite.new()
-	sprite.set_name("test_sprite")
-	var box = add_child_below_node(self,sprite)
-	var box_node = get_node("test_sprite")
+	var audio_2 = AudioStreamPlayer.new()
+	var box = add_child(sprite)
+	
 	
 	print_tree_pretty()
 	var image = load(picture)
-	box_node.position = Vector2(400,400)
-	box_node.scale = Vector2(.3,.3)
-	box_node.set_texture(image)
+	sprite.position = Vector2(400,400)
+	sprite.scale = Vector2(.3,.3)
+	sprite.set_texture(image)
+	
+	if(audio_in != null):
+		var loaded_audio = load(audio_in)
+		audio_2.set_stream(loaded_audio)
+		audio_2.play()
+	
 	yield(get_tree().create_timer(3.0), "timeout")
-	box_node.queue_free()
+	
+	
+	
+	remove_child(sprite) # force remove 
 	
 	
