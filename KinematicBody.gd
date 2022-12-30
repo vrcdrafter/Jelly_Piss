@@ -39,8 +39,8 @@ func _ready():
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
-	gimme_scene("res://beach couple.png")
-	#gimme_scene("res://grey_fox.jpg")
+	yield(gimme_scene("res://beach couple.png"),"completed")
+	yield(gimme_scene("res://grey_fox.jpg"),"completed")
 	
 func _process(delta):
 	if Exit_On_Escape:
@@ -169,7 +169,7 @@ func gimme_scene(picture,audio=null):
 	var box = add_child_below_node(self,sprite)
 	var box_node = get_node("test_sprite")
 	
-	
+	print_tree_pretty()
 	var image = load(picture)
 	box_node.position = Vector2(400,400)
 	box_node.scale = Vector2(.3,.3)
