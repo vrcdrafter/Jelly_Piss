@@ -35,13 +35,17 @@ var gradual_one = 0
 
 
 func _ready():
+	
+	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
+	yield(gimme_scene("res://grey_fox.jpg"),"completed")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	forward_velocity = Walk_Speed
 	set_process(true)
 	timer.wait_time = 1
-	yield(get_tree().create_timer(1.0), "timeout")
-	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
-	yield(gimme_scene("res://grey_fox.jpg"),"completed")
+	
+	
+	
 	
 func _process(delta):
 	if Exit_On_Escape:
