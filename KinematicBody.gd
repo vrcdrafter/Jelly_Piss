@@ -31,7 +31,7 @@ var end_num = 0
 var gradual_one = 0
 
 # var for 
-
+var audio_file_num = 1
 
 
 func _ready():
@@ -48,6 +48,7 @@ func _ready():
 	
 	
 func _process(delta):
+	print("audio_file_num is ",audio_file_num)
 	if Exit_On_Escape:
 		if Input.is_key_pressed(KEY_ESCAPE):
 			get_tree().quit()
@@ -78,8 +79,20 @@ func _process(delta):
 		ready_for_boss = 1
 	if player_pos > 95 && ready_for_boss == 1:
 		self.global_transform.origin = lerp(self.global_transform.origin,marker_pos.transform.origin,.01)
-		yield(get_tree().create_timer(1.0), "timeout")
+		
+		yield(get_tree().create_timer(2.0), "timeout")
+
 		ready_for_boss = 2
+		if audio_file_num == 1:
+			gimme_scene(null,"res://what_is_this.wav")
+			audio_file_num = 2
+			print("in the loop , should appear once")
+		yield(get_tree().create_timer(5.0), "timeout") # timer to wait for boss to appear
+		
+		if audio_file_num == 2:
+			gimme_scene("res://beach couple.png","res://my_drink.wav")
+			audio_file_num = 3
+			print("in the loop , should appear once")
 		#print("can not move")
 	# end player override at end of level 
 	
@@ -167,7 +180,8 @@ func analog_one():
 		return gradual_one
 
 
-func gimme_scene(picture,audio_in=null):
+func gimme_scene(picture=null,audio_in=null):
+	
 	#create box 
 	var sprite = Sprite.new()
 	var audio_2 = AudioStreamPlayer.new()
@@ -175,16 +189,17 @@ func gimme_scene(picture,audio_in=null):
 	var box = add_child(sprite)
 	
 	
-	print_tree_pretty()
-	var image = load(picture)
-	sprite.position = Vector2(400,400)
-	sprite.scale = Vector2(.3,.3)
-	sprite.set_texture(image)
+	#print_tree_pretty()
+	if(picture != null):
+		var image = load(picture)
+		sprite.position = Vector2(400,400)
+		sprite.scale = Vector2(.3,.3)
+		sprite.set_texture(image)
 	
 	if(audio_in != null):
 		var loaded_audio = load(audio_in)
 		audio_2.set_stream(loaded_audio)
-		print(loaded_audio)
+		#print(loaded_audio)
 		audio_2.play()
 	
 	yield(get_tree().create_timer(3.0), "timeout")
@@ -192,5 +207,6 @@ func gimme_scene(picture,audio_in=null):
 	
 	
 	remove_child(sprite) # force remove 
+	remove_child(audio_2)
 	
 	
