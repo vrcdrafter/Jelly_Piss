@@ -1,5 +1,7 @@
 extends KinematicBody
 
+onready var new_scene = ResourceLoader.load("res://main_scene.tscn")
+
 export var Sensitivity_X = 0.01
 export var Sensitivity_Y = 0.01 # this seems to expoer the variable to the camera
 export var Invert_Y_Axis = false
@@ -19,7 +21,7 @@ var velocity_2 = Vector3(0,0,0)
 var velocity_3 = Vector3(-5,3,0)
 
 onready var timer = get_node("shake_timer")
-
+var current_scene = null
 export var ready_for_boss = 0
 
 var forward_velocity = 0
@@ -33,7 +35,9 @@ var gradual_one = 0
 # var for 
 var audio_file_num = 1
 
-
+# end game signal 
+onready var game_is_over = get_node("/root/Spatial/boss_jelly/Sprite3D")
+var go_to_end_screen = false
 func _ready():
 	
 	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
@@ -48,6 +52,16 @@ func _ready():
 	
 	
 func _process(delta):
+	print("go_to_end_screen",go_to_end_screen)
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() - 1)
+	go_to_end_screen = game_is_over.game_finished
+	if go_to_end_screen == true:
+		current_scene.queue_free()
+		current_scene = new_scene.instance()
+		get_tree().get_root().add_child(current_scene)
+	
+	
 	#print("audio_file_num is ",audio_file_num)
 	if Exit_On_Escape:
 		if Input.is_key_pressed(KEY_ESCAPE):
@@ -211,4 +225,5 @@ func gimme_scene(picture=null,audio_in=null):
 	remove_child(sprite) # force remove 
 	remove_child(audio_2)
 	
-	
+
+

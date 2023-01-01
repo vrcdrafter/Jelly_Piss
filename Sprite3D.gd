@@ -8,12 +8,13 @@ var jellu_alive = true
 var attacking = false
 var attack_anim_finished = false
 signal attack_finisued
-
+export var game_finished = false
 onready var collission_shape1 = get_node("../Area")
 onready var collission_shape2 = get_node("../attack_box")
 onready var collission_shape3 = get_node("../enemy_detection")
 onready var death_audio = get_node("../AudioStreamPlayer")
 onready var idle_audio = get_node("../AudioStreamPlayer")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -47,8 +48,10 @@ func _on_Area_area_entered(area):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "die":
+		game_finished = true
 		var source_jelly = get_node("..")
 		source_jelly.queue_free()
+		
 	if anim_name == "zap":
 		$AnimationPlayer.stop()
 		attack_anim_finished = true # this is a bad idea how do I reset
