@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://sand.jpg" type="Texture" id=1]
 [ext_resource path="res://DRINK.tscn" type="PackedScene" id=2]
@@ -20,6 +20,10 @@
 [ext_resource path="res://hottie_latina.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Jellyfish Sprite Sheet.png" type="Texture" id=19]
 [ext_resource path="res://hottie_red.tscn" type="PackedScene" id=20]
+[ext_resource path="res://fatty1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://fatty2.tscn" type="PackedScene" id=22]
+[ext_resource path="res://kids.tscn" type="PackedScene" id=23]
+[ext_resource path="res://muscle.tscn" type="PackedScene" id=24]
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 5 )
@@ -1355,6 +1359,69 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.347, 0.552576, 81.465 )
 
 [node name="hottie_4" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128.674, 0.552576, 82.6738 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.4185, 1.55169, 92.6833 )
+
+[node name="Spatial5" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.9285, 1.55169, 92.6833 )
+
+[node name="Spatial6" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.9285, 1.55169, 72.6997 )
+
+[node name="Spatial7" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5792, 1.55169, 72.6997 )
+
+[node name="Spatial10" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9358, 0.666992, 76.4052 )
+
+[node name="Spatial11" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.1484, 0.666992, 76.4052 )
+
+[node name="Spatial12" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3129, 0.666992, 91.8962 )
+
+[node name="Spatial13" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.1834, 0.666992, 84.1965 )
+
+[node name="Spatial14" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.151, 0.666992, 72.5722 )
+
+[node name="Spatial8" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.211, 1.55169, 78.8793 )
+
+[node name="Spatial9" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.703, 1.55169, 83.1071 )
+
+[node name="Spatial" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3756, 1.58307, 90.7028 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.2019, 1.58307, 78.3796 )
+
+[node name="Spatial15" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4737, 1.22511, 74.4814 )
+
+[node name="Spatial16" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9831, 1.22511, 74.4814 )
+
+[node name="Spatial17" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.04, 1.22511, 79.3663 )
+
+[node name="Spatial18" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 110.085, 1.22511, 92.9312 )
+
+[node name="Spatial19" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.904, 1.22511, 75.9773 )
+
+[node name="Spatial20" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.531, 1.22511, 80.4105 )
+
+[node name="Spatial21" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 122.997, 1.22511, 57.1682 )
+
+[node name="Spatial3" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.968, 1.58307, 90.931 )
 
 [editable path="jelly2"]
 [editable path="jelly3"]
