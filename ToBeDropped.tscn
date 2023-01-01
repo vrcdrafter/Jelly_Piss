@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://KinematicBody.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://health.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Particles.gd" type="Script" id=5]
 [ext_resource path="res://Area.gd" type="Script" id=6]
+[ext_resource path="res://piss_volume.gd" type="Script" id=7]
 
 [sub_resource type="PrismMesh" id=6]
 
@@ -82,6 +83,7 @@ script = ExtResource( 6 )
 [node name="piss_volume" type="CollisionShape" parent="Player/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0013895 )
 shape = SubResource( 2 )
+script = ExtResource( 7 )
 
 [node name="Particles" type="Particles" parent="Player/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146766, 1.66969 )

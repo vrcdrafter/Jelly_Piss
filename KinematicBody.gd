@@ -48,7 +48,7 @@ func _ready():
 	
 	
 func _process(delta):
-	print("audio_file_num is ",audio_file_num)
+	#print("audio_file_num is ",audio_file_num)
 	if Exit_On_Escape:
 		if Input.is_key_pressed(KEY_ESCAPE):
 			get_tree().quit()
@@ -86,14 +86,16 @@ func _process(delta):
 		if audio_file_num == 1:
 			gimme_scene(null,"res://what_is_this.wav")
 			audio_file_num = 2
-			print("in the loop , should appear once")
+			
 		yield(get_tree().create_timer(5.0), "timeout") # timer to wait for boss to appear
 		
 		if audio_file_num == 2:
 			gimme_scene("res://beach couple.png","res://my_drink.wav")
 			audio_file_num = 3
-			print("in the loop , should appear once")
+			
 		#print("can not move")
+		yield(get_tree().create_timer(1.0), "timeout")
+		ready_for_boss = 3
 	# end player override at end of level 
 	
 	
@@ -104,7 +106,7 @@ func _physics_process(delta):
 	
 	var player_pos = global_transform.origin.x
 	
-	if player_pos <= 95 || ready_for_boss <= 2:
+	if player_pos <= 95 || ready_for_boss <= 3:
 		#print("can move")
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			pee = true

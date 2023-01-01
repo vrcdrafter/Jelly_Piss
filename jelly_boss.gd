@@ -28,11 +28,12 @@ func _ready():
 
 func _process(delta):
 	presented = player_status.ready_for_boss
-	#print(presented)
-	if presented == 2:
+	#print("presenset",presented,"shoot_bullet",shoot_bullet)
+	if presented >= 2:
 		self.global_transform.origin = lerp(self.global_transform.origin,Vector3(99.6,6.238,125.25),.02)
-		if ready_for_battle:
+		if presented == 3:
 			if shoot_bullet:
+				print("bullet Shoots")
 				var bullet = projectile.instance()
 				#add_child_below_node(get_tree().get_root().get_node("AudioStreamPlayer"),bullet)
 				add_child(bullet,true)
