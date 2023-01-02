@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://KinematicBody.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [sub_resource type="PrismMesh" id=6]
 
 [sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.133333, 0.243137, 0.964706, 1 )
+albedo_color = Color( 0.976471, 0.960784, 0.0470588, 1 )
 
 [sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.139828, 0.964706, 0.133333, 1 )
@@ -25,6 +25,9 @@ extents = Vector3( 0.22605, 0.194065, 0.624815 )
 [sub_resource type="BoxShape" id=2]
 margin = 0.2
 extents = Vector3( 0.355498, 1.02565, 3.06641 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 1, 0.968627, 0.101961, 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 direction = Vector3( 0, 0, -1 )
@@ -47,16 +50,19 @@ Maximum_Y_Look = 90
 
 [node name="CSGMesh" type="CSGMesh" parent="Player"]
 transform = Transform( 0.171, 0, 0, 0, -4.30994e-08, 0.11, 0, -0.986, -4.80825e-09, 0, -0.0447097, -1.6892 )
+visible = false
 mesh = SubResource( 6 )
 material = SubResource( 7 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="Player"]
 transform = Transform( 0.171, 0, 0, 0, 0.986, 0, 0, 0, 0.11, 0, 2.14912, 0.452534 )
+visible = false
 mesh = SubResource( 6 )
 material = SubResource( 8 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="Player"]
 transform = Transform( 2.03915e-09, 0.986, 0, -0.171, 1.17579e-08, 0, 0, 0, 0.11, 1.06621, 0.241656, 0.452534 )
+visible = false
 mesh = SubResource( 6 )
 material = SubResource( 9 )
 
@@ -87,6 +93,7 @@ script = ExtResource( 7 )
 
 [node name="Particles" type="Particles" parent="Player/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146766, 1.66969 )
+material_override = SubResource( 10 )
 visibility_aabb = AABB( -0.951014, -0.639917, -2.27974, 1.90203, 1.27983, 4.55947 )
 local_coords = false
 process_material = SubResource( 3 )

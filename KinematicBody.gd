@@ -40,7 +40,7 @@ onready var game_is_over = get_node("/root/Spatial/boss_jelly/Sprite3D")
 var go_to_end_screen = false
 func _ready():
 	
-	yield(gimme_scene("res://beach couple.png","res://my_drink.wav"),"completed")
+	yield(gimme_scene("res://beach couple.png","res://intro_audio.wav",14.5),"completed")
 	yield(gimme_scene("res://grey_fox.jpg"),"completed")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -104,11 +104,11 @@ func _process(delta):
 		yield(get_tree().create_timer(5.0), "timeout") # timer to wait for boss to appear
 		
 		if audio_file_num == 2:
-			gimme_scene("res://beach couple.png","res://my_drink.wav")
+			gimme_scene("res://cooler scene.png","res://need_a_drink.wav",11)
 			audio_file_num = 3
 			
 		#print("can not move")
-		yield(get_tree().create_timer(1.0), "timeout")
+		yield(get_tree().create_timer(11.0), "timeout")
 		ready_for_boss = 3
 	# end player override at end of level 
 	
@@ -196,7 +196,7 @@ func analog_one():
 		return gradual_one
 
 
-func gimme_scene(picture=null,audio_in=null):
+func gimme_scene(picture=null,audio_in=null,time=3):
 	
 	#create box 
 	var sprite = Sprite.new()
@@ -218,7 +218,7 @@ func gimme_scene(picture=null,audio_in=null):
 		#print(loaded_audio)
 		audio_2.play()
 	
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield(get_tree().create_timer(time), "timeout")
 	
 	
 	

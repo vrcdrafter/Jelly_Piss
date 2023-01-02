@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://sand.jpg" type="Texture" id=1]
 [ext_resource path="res://DRINK.tscn" type="PackedScene" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://fatty2.tscn" type="PackedScene" id=22]
 [ext_resource path="res://kids.tscn" type="PackedScene" id=23]
 [ext_resource path="res://muscle.tscn" type="PackedScene" id=24]
+[ext_resource path="res://muscle_2.tscn" type="PackedScene" id=25]
+[ext_resource path="res://sign.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 5 )
@@ -1396,8 +1398,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.703, 1.55169, 83.1071 )
 [node name="Spatial" parent="." instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3756, 1.58307, 90.7028 )
 
+[node name="Spatial25" parent="." instance=ExtResource( 26 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.3229, 0.488532, 84.0429 )
+
 [node name="Spatial2" parent="." instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.2019, 1.58307, 78.3796 )
+
+[node name="Spatial22" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 54.8464, 1.08922, 72.5804 )
+
+[node name="Spatial23" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 101.337, 1.08922, 72.5804 )
+
+[node name="Spatial24" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 112.089, 1.08922, 89.5162 )
 
 [node name="Spatial15" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4737, 1.22511, 74.4814 )
