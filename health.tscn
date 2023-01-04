@@ -153,6 +153,17 @@ margin_bottom = 30.0
 custom_colors/font_color = Color( 1, 0.0431373, 0.0431373, 1 )
 text = "HEALTH "
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 660.0
+margin_top = 17.0
+margin_right = 722.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0.113725, 0.0392157, 0.0392157, 1 )
+custom_colors/font_color_shadow = Color( 0.921569, 0.34902, 0.0941176, 1 )
+text = "OBJECTIVES:
+Pee on all Jelly Fish 
+Get drinks for ammo"
+
 [node name="Label2" type="Label" parent="."]
 margin_left = 2.0
 margin_top = 42.0

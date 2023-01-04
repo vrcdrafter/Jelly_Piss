@@ -40,8 +40,8 @@ onready var game_is_over = get_node("/root/Spatial/boss_jelly/Sprite3D")
 var go_to_end_screen = false
 func _ready():
 	
-	yield(gimme_scene("res://beach couple.png","res://intro_audio.wav",14.5),"completed")
-	yield(gimme_scene("res://grey_fox.jpg"),"completed")
+	yield(gimme_scene("res://beach couple.png","res://intro_audio_pt1.wav",8),"completed")
+	yield(gimme_scene("res://beach couple2.png","res://intro_audio_pt2.wav",7),"completed")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	forward_velocity = Walk_Speed
