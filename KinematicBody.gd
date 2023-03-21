@@ -40,8 +40,8 @@ onready var game_is_over = get_node("/root/Spatial/boss_jelly/Sprite3D")
 var go_to_end_screen = false
 func _ready():
 	
-	yield(gimme_scene("res://beach couple.png","res://intro_audio_pt1.wav",8),"completed")
-	yield(gimme_scene("res://beach couple2.png","res://intro_audio_pt2.wav",7),"completed")
+	#yield(gimme_scene("res://beach couple.png","res://intro_audio_pt1.wav",8),"completed")
+	#yield(gimme_scene("res://beach couple2.png","res://intro_audio_pt2.wav",7),"completed")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	forward_velocity = Walk_Speed
@@ -52,7 +52,7 @@ func _ready():
 	
 	
 func _process(delta):
-	print("go_to_end_screen",go_to_end_screen)
+	#print("go_to_end_screen",go_to_end_screen)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	go_to_end_screen = game_is_over.game_finished

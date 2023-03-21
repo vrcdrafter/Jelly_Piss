@@ -81,9 +81,10 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="Area" type="Area" parent="Player"]
+[node name="Area" type="Area" parent="Player" groups=["pee"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.92247 )
 collision_layer = 4
+collision_mask = 65
 script = ExtResource( 6 )
 
 [node name="piss_volume" type="CollisionShape" parent="Player/Area"]
