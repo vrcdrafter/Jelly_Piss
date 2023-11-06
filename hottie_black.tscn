@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://girl.gd" type="Script" id=1]
-[ext_resource path="res://black_girl.png" type="Texture" id=2]
+[ext_resource path="res://beach_body_blonde.png" type="Texture" id=2]
 [ext_resource path="res://my_drink.wav" type="AudioStream" id=3]
 
 [sub_resource type="BoxShape" id=1]
